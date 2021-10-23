@@ -1,6 +1,8 @@
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+//La classe GameScene est une classe fille de Scene, qui possède une caméra nommée cam
+
 public class GameScene extends Scene {
 
     private Camera cam;

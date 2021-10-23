@@ -18,6 +18,9 @@ public class Runner_test extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+
+        //Création de la fenêtre
+
         primaryStage.setTitle("Runner");
         Group root = new Group();
         Pane pane = new Pane(root);
@@ -26,13 +29,17 @@ public class Runner_test extends Application {
 
 
 
-
+        //Instanciation du background
 
         StaticThing Background_left = new StaticThing(0, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
         StaticThing Background_right = new StaticThing(800, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
 
+        //Affichage du background
+
         Background_left.display(pane);
         Background_right.display(pane);
+
+        //Instanciation et affichage de l'icone caméra
 
         StaticThing cam_im = new StaticThing(200, 0,"D:\\Coding\\Java\\1 Runner\\img\\cam.png");
         cam_im.display(pane);
@@ -45,6 +52,8 @@ public class Runner_test extends Application {
         sprite.setY(250);
         pane.getChildren().add(sprite);
 
+        //Instanciation et affichage de la caméra (pour le moment, un simple rectangle rouge)
+
         Camera camera = theScene.getcamera();
         Image rectangle = new Image(new FileInputStream("D:\\Coding\\Java\\1 Runner\\img\\Red_rectangle.png"));
         ImageView rect = new ImageView(rectangle);
@@ -52,6 +61,8 @@ public class Runner_test extends Application {
         rect.setX(camera.getx());
         rect.setY(camera.gety());
         pane.getChildren().add(rect);
+
+        //Affichage du primaryStage
 
         primaryStage.show();
 

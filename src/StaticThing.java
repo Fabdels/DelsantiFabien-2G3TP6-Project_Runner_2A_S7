@@ -5,6 +5,8 @@ import javafx.scene.layout.Pane;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+//La classe StaticThing permet d'instancier un objet statique et de l'afficher avec la fonction display
+
 public class StaticThing {
 
     private double x;
@@ -27,7 +29,5 @@ public class StaticThing {
 
         root.getChildren().add(Imview);
 
-
-        // Test Github update
     }
 }
