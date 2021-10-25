@@ -24,22 +24,8 @@ public class Runner_test extends Application {
         primaryStage.setTitle("Runner");
         Group root = new Group();
         Pane pane = new Pane(root);
-        GameScene theScene = new GameScene(pane, 800, 400,true);
+        GameScene theScene = new GameScene(pane, 1000, 400,true);
         primaryStage.setScene(theScene);
-
-
-
-        //Instanciation du background
-
-        StaticThing Background_left = new StaticThing(0, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
-        StaticThing Background_right = new StaticThing(800, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
-
-        //Affichage du background
-
-        Background_left.display(theScene);
-        Background_right.display(theScene);
-
-
 
 
         //Affichage du héros (mis en commentaire avant de passer à AnimatedThing et Hero)

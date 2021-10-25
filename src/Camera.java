@@ -22,4 +22,8 @@ public class Camera {
     public String toString(){
         return "x : "+x+", y : "+y;
     }
+
+    public void moveright(){
+        x++;
+    }
 }

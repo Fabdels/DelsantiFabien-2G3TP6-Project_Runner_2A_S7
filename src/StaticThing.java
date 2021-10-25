@@ -36,4 +36,20 @@ public class StaticThing {
         root.getChildren().add(Imview);
 
     }
+
+
+    public void update(GameScene scene) {
+
+        Camera cam = scene.getcamera();
+
+
+
+        //Changer la position de la caméra décale les StaticThings
+
+        Imview.setX(x-cam.getx());      //Changer la position de la
+        Imview.setY(y-cam.gety());      //caméra décale les StaticThings
+
+
+    }
+
 }
