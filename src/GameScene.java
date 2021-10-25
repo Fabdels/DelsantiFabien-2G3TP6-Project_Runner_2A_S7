@@ -9,7 +9,7 @@ public class GameScene extends Scene {
 
     public GameScene(Parent root, double width, double height, boolean depthBuffer) {
         super(root, width, height, depthBuffer);
-        cam = new Camera(15,90);
+        cam = new Camera(400,0);
     }
 
     public Camera getcamera(){return cam;}

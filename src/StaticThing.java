@@ -20,13 +20,19 @@ public class StaticThing {
 
         Image Im = new Image(new FileInputStream(fileName));
         Imview = new ImageView(Im);
-        Imview.setX(x);
-        Imview.setY(y);
+
 
     }
 
-    public void display(Pane root) {
+    public void display(GameScene scene) {
 
+        Camera cam = scene.getcamera();
+
+        Imview.setX(x-cam.getx());      //Changer la position de la
+        Imview.setY(y-cam.gety());      //caméra décale les StaticThings
+
+
+        Pane root = (Pane) scene.getRoot();
         root.getChildren().add(Imview);
 
     }
