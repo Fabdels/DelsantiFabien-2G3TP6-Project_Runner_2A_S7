@@ -24,6 +24,6 @@ public class Camera {
     }
 
     public void moveright(){
-        x++;
+        x=(x+1)%800;
     }
 }

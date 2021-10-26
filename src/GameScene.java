@@ -9,7 +9,8 @@ public class GameScene extends Scene {
 
     private Camera cam;
     private StaticThing Background_left = new StaticThing(0, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
-    private StaticThing Background_right = new StaticThing(800, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
+    private StaticThing Background_mid = new StaticThing(800, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
+    private StaticThing Background_right = new StaticThing(1600, 0,"D:\\Coding\\Java\\1 Runner\\img\\desert.png");
     private Hero hero = new Hero(0,250, "D:\\Coding\\Java\\1 Runner\\img\\heros.png");
 
 
@@ -23,6 +24,7 @@ public class GameScene extends Scene {
         //Affichage du background
 
         Background_left.display(this);
+        Background_mid.display(this);
         Background_right.display(this);
 
         hero.display(this);
@@ -37,8 +39,9 @@ public class GameScene extends Scene {
 
             cam.moveright();
             Background_left.update(this);
+            Background_mid.update(this);
             Background_right.update(this);
-            System.out.println("Move camera : "+cam.toString());
+            System.out.println("Camera : "+cam.toString());
 
 
 
