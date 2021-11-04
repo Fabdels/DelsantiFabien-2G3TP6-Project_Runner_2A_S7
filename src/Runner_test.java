@@ -24,7 +24,7 @@ public class Runner_test extends Application {
         primaryStage.setTitle("Runner");
         Group root = new Group();
         Pane pane = new Pane(root);
-        GameScene theScene = new GameScene(pane, 1000, 400,true);
+        GameScene theScene = new GameScene(pane, 1500, 400,true);
         primaryStage.setScene(theScene);
 
 
