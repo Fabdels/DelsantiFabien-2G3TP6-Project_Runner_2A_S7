@@ -18,7 +18,7 @@ public class StaticThing {
         this.x = x;
         this.y = y;
 
-        Image Im = new Image(new FileInputStream(fileName));
+        Image Im = new Image(fileName);
         Imview = new ImageView(Im);
 
 

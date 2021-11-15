@@ -2,8 +2,10 @@
 
 public class Camera {
 
-    private int x=0;
-    private int y=0;
+    private double x=0;
+    private double y=0;
+    private double cam_speed=3;
+    private double speed_up=0;
 
     public Camera(int x, int y){
 
@@ -11,9 +13,9 @@ public class Camera {
         this.y=y;
 
     }
-    public int getx(){return x;}
+    public double getx(){return x;}
 
-    public int gety(){
+    public double gety(){
         return y;
     }
 
@@ -24,9 +26,15 @@ public class Camera {
     }
 
     public void moveright(){
-        x=(x+2)%800;
+
+
+        x=(x+cam_speed+speed_up)%800;
     }
 
-    public void update(long time){}
+    public void update(long time){
+
+        speed_up = (double) (time / 2000000000);
+        speed_up=speed_up/5;
+    }
 
 }
