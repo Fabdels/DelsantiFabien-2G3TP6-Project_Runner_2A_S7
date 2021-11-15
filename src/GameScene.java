@@ -19,6 +19,8 @@ public class GameScene extends Scene {
     private Hero hero = new Hero(200,245, "\\heros.png");
     private ArrayList<Foe> List_Foes;
 
+    private ArrayList<Heart> List_Hearts;
+
     public static void update(long time){}
 
 
@@ -34,6 +36,13 @@ public class GameScene extends Scene {
             List_Foes.add(foe);
         }
 
+        List_Hearts = new ArrayList<Heart>();
+
+        for (int i = 0; i < 3; i++) {
+            Heart heart = new Heart(90*i, 0, "\\heart.png");
+            List_Hearts.add(heart);
+        }
+
 
         timer.start();
 
@@ -46,9 +55,11 @@ public class GameScene extends Scene {
         Background_right.display(this);
         hero.display(this);
         for (int x = 0; x < List_Foes.size(); x++) {
-            Foe foe = null;
-            foe = (Foe) List_Foes.get(x);
-            foe.display(this);
+            List_Foes.get(x).display(this);
+        }
+
+        for (int x = 0; x < List_Hearts.size(); x++) {
+            List_Hearts.get(x).display(this);
         }
 
 
@@ -104,13 +115,22 @@ public class GameScene extends Scene {
 
 
 
-                Rectangle2D foe_hitbox = foe.getHitBox();
-                Rectangle2D hero_hitbox = hero.getHitBox();
 
 
+                if (hero.isInvincible(elapsed_nano_second)==0) {
+                    Rectangle2D foe_hitbox = foe.getHitBox();
+                    Rectangle2D hero_hitbox = hero.getHitBox();
 
-                if (hero_hitbox.intersects(foe_hitbox)) {
-                    timer.stop();
+
+                    if (hero_hitbox.intersects(foe_hitbox)) {
+
+                        int Life =hero.hit(elapsed_nano_second);
+                        List_Hearts.get(Life).Empty();
+                        if (Life == 0) {
+                            timer.stop();
+                        }
+                    }
+
                 }
                 Background_left.update(cam);
                 Background_mid.update(cam);

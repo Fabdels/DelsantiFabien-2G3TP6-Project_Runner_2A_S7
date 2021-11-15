@@ -1,16 +1,27 @@
 import javafx.geometry.Rectangle2D;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import static java.lang.Math.random;
 
 public class Hero extends AnimatedThing{
 
     private boolean double_jump=true;
+
+    private int life=3;
+
+
+
+    private double invincibility;
+    private double invincibility_time;
 
     private double anim_speed_up;
     private double new_anim_speed_up;
 
     public Hero(double x, double y, String fileName) throws FileNotFoundException {
         super(x, y, fileName);
+
     }
 
 
@@ -19,6 +30,9 @@ public class Hero extends AnimatedThing{
         //Le saut a lieu si le personnage est en train de courir
 
         if (attitude==0  || double_jump) {
+
+
+
 
 
 
@@ -48,6 +62,9 @@ public class Hero extends AnimatedThing{
     }
 
     public void update(long time){
+
+
+
 
 
         //Gestion des vitesses, composante verticale d'abord :
@@ -118,6 +135,51 @@ public class Hero extends AnimatedThing{
         Imview.setY(y);      //caméra ne décale pas les AnimatedThings
 
 
+        if (invincibility_time>=0) {
+            invincibility_time = invincibility - time / 100000;
+
+
+            int test_2 = (int) (time / (50000000 / (anim_speed_up + 0.5)));
+
+
+            int blip = test_2 % 3;
+
+            if (blip==1){
+
+                Imview.setViewport(new Rectangle2D(250, 162, 79.5, 100));
+
+            }
+
+
+        }
+
+
+    }
+
+    public int hit(long time){
+
+        life--;
+        invincibility=25000+time/100000;
+        invincibility_time=0;
+        return life;
+
+
+
+
+    }
+
+    public int isInvincible(long time){
+
+
+
+        if (invincibility_time<0)
+        {
+            return 0;
+
+        }
+        else{
+            return 1;
+        }
 
 
     }
