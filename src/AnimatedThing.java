@@ -6,6 +6,12 @@ import javafx.scene.layout.Pane;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+
+/*La classe AnimatedThing est une classe abstraite dont vont hériter tous
+les éléments animés et/ou mobiles du jeu
+*/
+
+
 public abstract class AnimatedThing {
 
     protected double x;
@@ -15,8 +21,7 @@ public abstract class AnimatedThing {
     protected int index=0;
     protected int duration;
     protected int max_index=6;
-    protected int window_x;
-    protected int window_y;
+    protected int size;
     protected int offset=0;
     protected double speed_x;
     protected double speed_y;
@@ -51,9 +56,6 @@ public abstract class AnimatedThing {
         root.getChildren().add(Imview);
 
     }
-
-
-
 
 
 

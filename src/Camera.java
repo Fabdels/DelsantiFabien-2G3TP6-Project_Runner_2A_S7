@@ -1,4 +1,4 @@
-//La classe caméra n'est pour le moment composé que de deux coordonnées
+//La classe caméra permet de faire défiler le background
 
 public class Camera {
 
@@ -34,7 +34,7 @@ public class Camera {
     public void update(long time){
 
         speed_up = (double) (time / 2000000000);
-        speed_up=speed_up/5;
+        speed_up=speed_up/10;
     }
 
 }
