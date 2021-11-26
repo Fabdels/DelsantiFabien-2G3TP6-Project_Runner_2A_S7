@@ -58,6 +58,10 @@ public abstract class AnimatedThing {
     }
 
 
+    public double get_x(){
+
+        return x;
+    }
 
     public void update(long time){}
 

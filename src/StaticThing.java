@@ -49,4 +49,15 @@ public class StaticThing {
 
     }
 
+    public void center() {
+
+
+        //Changer la position de la caméra décale les StaticThings
+
+        Imview.setX(300);
+        Imview.setY(20);
+
+
+    }
+
 }

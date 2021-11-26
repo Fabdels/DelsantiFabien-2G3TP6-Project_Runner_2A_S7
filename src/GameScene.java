@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -18,6 +19,10 @@ public class GameScene extends Scene {
     private StaticThing Background_left = new StaticThing(0, 0,"\\desert.png");
     private StaticThing Background_mid = new StaticThing(800, 0,"\\desert.png");
     private StaticThing Background_right = new StaticThing(1600, 0,"\\desert.png");
+
+    private StaticThing Win_message = new StaticThing(3000, 400,"\\you_win.png");
+    private StaticThing Lost_message = new StaticThing(3000, 400,"\\game_over.png");
+
     private Hero hero = new Hero(200,245, "\\heros.png");
     private ArrayList<Foe> List_Foes;
 
@@ -43,12 +48,12 @@ public class GameScene extends Scene {
 
         List_Foes = new ArrayList<Foe>();
 
-        for (int x = 0; x < 100; x++) {
-            Foe foe = new Foe((1000-5*x) * (x + 1) + (900-5*x) * random()+1200, 245, "\\ennemi.png");
+        for (int x = 0; x < 80; x++) {
+            Foe foe = new Foe((1000-4*x) * (x + 1) + (900-4*x) * random()+1200, 245, "\\ennemi.png");
             List_Foes.add(foe);
         }
 
-        for (int x = 0; x < 120; x++) {
+        for (int x = 0; x < 90; x++) {
             Eagle eagle = new Eagle((1200-5*x) * (x + 1) + (1000-5*x) * random()+1500, -30+x/10+50*random(), "\\eagle.png");
             List_Foes.add(eagle);
         }
@@ -87,11 +92,16 @@ public class GameScene extends Scene {
 
 
 
-        //Affichage du background
+        //Affichage du background et des messages de victoire et de défaite
 
         Background_left.display(this);
         Background_mid.display(this);
         Background_right.display(this);
+
+
+        Win_message.display(this);
+
+        Lost_message.display(this);
 
         //Affichage des AnimatedThings :
 
@@ -212,8 +222,23 @@ public class GameScene extends Scene {
                         List_Hearts.get(Life).Empty();
                         if (Life == 0) {
                             timer.stop();
+                            Lost_message.center();
                         }
                     }
+
+                }
+
+                if (foe.get_x()<-120){
+
+                    List_Foes.remove(x);
+
+                }
+
+                if (List_Foes.isEmpty()){
+
+                    timer.stop();
+
+                    Win_message.center();
 
                 }
 
@@ -239,6 +264,13 @@ public class GameScene extends Scene {
                     int Life =hero.lifeup();
                     List_Hearts.get(Life-1).Fill();
                     bonus.disappear();
+                    List_Bonuses.remove(x);
+
+                }
+
+
+                if (bonus.get_x()<-120){
+
                     List_Bonuses.remove(x);
 
                 }
