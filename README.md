@@ -13,7 +13,7 @@ avec une variation de vitesse entre 0 et maximum qui n'est pas instantanée
 
 -> Des ennemis terrestres et aériens
 
--> 4 coeurs représentant la vie (vie maximale = 4)
+-> 3 coeurs représentant la vie (vie maximale = 4)
 
 -> Des coeurs ramassables le long du niveau
 
