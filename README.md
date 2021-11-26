@@ -8,7 +8,7 @@ Le Runner que j'ai réalisé a pour particularités :
 -> Un saut et un double saut sont possibles
 
 -> Le personnage peut être déplacé horizontalement
-avec une variation de vitesse entre 0 et maximum qui n'est pas instantannée 
+avec une variation de vitesse entre 0 et maximum qui n'est pas instantanée 
 (ce retard sur la variation rend le déplacement fluide)
 
 -> Des ennemis terrestres et aériens
