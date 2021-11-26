@@ -220,6 +220,10 @@ public class GameScene extends Scene {
 
                         int Life =hero.hit(elapsed_nano_second);
                         List_Hearts.get(Life).Empty();
+
+
+
+                        //Game Over
                         if (Life == 0) {
                             timer.stop();
                             Lost_message.center();
@@ -234,6 +238,8 @@ public class GameScene extends Scene {
 
                 }
 
+
+                //Game Won
                 if (List_Foes.isEmpty()){
 
                     timer.stop();
