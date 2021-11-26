@@ -13,7 +13,7 @@ public class Hero extends AnimatedThing{
 
     private boolean double_jump=true;
 
-    private int life=4;
+    private int life=3;
 
 
     private boolean free=false;
@@ -314,7 +314,7 @@ public class Hero extends AnimatedThing{
     public int hit(long time){
 
         life--;
-        invincibility=25000+time/100000;
+        invincibility=15000+time/100000;
         invincibility_time=0;
         return life;
 
@@ -323,7 +323,7 @@ public class Hero extends AnimatedThing{
 
     public int lifeup(){
 
-        if (life<4) {
+        if (life<3) {
             life++;
         }
         return life;

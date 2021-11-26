@@ -60,14 +60,14 @@ public class GameScene extends Scene {
 
         List_Bonuses = new ArrayList<Bonus>();
 
-        for (int x = 0; x < 10; x++) {
-            Bonus bonus = new Bonus(7000* (x + 1) + 5000 * random()+5000, 200*random()+40, "\\bonus_heart.png");
+        for (int x = 0; x < 3; x++) {
+            Bonus bonus = new Bonus(8000* (x + 1) + 5000 * random()+5000, 200*random()+40, "\\bonus_heart.png");
             List_Bonuses.add(bonus);
         }
 
         List_Hearts = new ArrayList<Heart>();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             Heart heart = new Heart(70*i, 0, "\\heart.png");
             List_Hearts.add(heart);
         }
